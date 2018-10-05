@@ -1,5 +1,3 @@
-
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,7 +9,7 @@
     <title>Nissan </title>
 
     <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
    
     <!-- Custom styles for this template -->
     <link href="" rel="stylesheet">
@@ -39,7 +37,7 @@
 	
 	</style>
   </head>
-
+who
   <body>
 
     <header>
@@ -176,7 +174,7 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="thumbnail.svg" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Learning — Blended to Perfection</p>
+                  <p class="card-text">Learning â Blended to Perfection</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
