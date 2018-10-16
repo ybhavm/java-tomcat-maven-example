@@ -6,7 +6,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Nissan </title>
+    <title>Reliance </title>
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
@@ -16,14 +16,15 @@
 	<style>
 	
 	.banner-nissan {
-	  height: 400px;
+	  height: 600px;
 	  width: 100%;
-	  max-height: 50%;
+	 
 	  max-width: 100%;
 	  min-height: 20%;
 	  min-width: 30%;
-	  background-image: url("nissan.png");
-	  background-size: cover;
+	  background-image: url("Jio-Innovative-company.jpg");
+	background-size: contain;
+	background-repeat:no-repeat;
 	}
 	.banner-simpli {
 	  height: 400px;
@@ -37,7 +38,7 @@
 	
 	</style>
   </head>
-who
+
   <body>
 
     <header>
@@ -59,11 +60,11 @@ who
           </div>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="navbar navbar-dark bg-dark box-shadow" style=" background-color:#f2f2f2!important;">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>Nissan, Build through Jenkins</strong>
+			<img src="RIL_Logo.png">
+		  
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
