@@ -21,7 +21,7 @@ node{
    }
    
    stage('Run Container on Deployment-server'){
-      def dockerRun= 'sudo docker run -p 9090:9090 -d --name javatomcatapp_$BUILD_NUMBER rajnikhattarrsinha/java-tomcat-maven-example:2.0.0'
+      def dockerRun= 'sudo docker run -p 9090:9090 -d --name java-tomcat-maven-example_$BUILD_NUMBER rajnikhattarrsinha/java-tomcat-maven-example:2.0.0'
       sshagent(['dockerdeployserver2']) {
     // some block
          sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"
