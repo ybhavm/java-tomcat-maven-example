@@ -8,13 +8,13 @@ node{
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
-  /* stage 'test'
+   stage 'test'
    parallel 'test': {
      sh "${mvnHome}/bin/mvn test; sleep 2;"
    }, 'verify': {
      sh "${mvnHome}/bin/mvn verify; sleep 3"
    }
-   */
+   
    
    
    stage('Build Docker Image'){
