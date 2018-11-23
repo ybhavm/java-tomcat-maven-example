@@ -3,18 +3,18 @@ node{
      git 'https://github.com/rajnikhattarrsinha/java-tomcat-maven-example'
    }
    
+   stage ('Test'){
+      def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'    
+      sh "${mvnHome}/bin/mvn verify; sleep 3"
    
+   }
    
     stage('Mvn Package'){
       // Get maven home path
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
-   stage ('Test'){
-      def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'    
-      sh "${mvnHome}/bin/mvn verify; sleep 3"
    
-   }
    
    
    
