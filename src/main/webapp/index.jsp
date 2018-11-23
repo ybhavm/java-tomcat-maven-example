@@ -6,7 +6,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Honeywell </title>
+    <title>Reliance </title>
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
@@ -16,13 +16,13 @@
 	<style>
 	
 	.banner-nissan {
-	  height: 387px;
+	  height: 600px;
 	  width: 100%;
 	 
-	  
+	  max-width: 100%;
 	  min-height: 20%;
 	  min-width: 30%;
-	  background-image: url("honeywell.png");
+	  background-image: url("Jio-Innovative-company.jpg");
 	background-size: contain;
 	background-repeat:no-repeat;
 	}
@@ -60,7 +60,17 @@
           </div>
         </div>
       </div>
-      
+      <div class="navbar navbar-dark bg-dark box-shadow" style=" background-color:#f2f2f2!important;">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+			<img src="RIL_Logo.png">
+		  
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <main role="main">
