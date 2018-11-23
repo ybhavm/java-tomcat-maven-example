@@ -37,7 +37,7 @@ node{
       //def portChk='./portrel.sh'
       sshagent(['dockerdeployserver2']) {
     // some block
-         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"   
+         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.145.109.236 ${dockerRun}"   
                    
       }
    }
