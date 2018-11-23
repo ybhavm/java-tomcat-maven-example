@@ -9,11 +9,12 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    stage ('test'){
-   parallel 'test': {
+   /* parallel 'test': {
      sh "${mvnHome}/bin/mvn test; sleep 2;"
    }, 'verify': {
+   */
      sh "${mvnHome}/bin/mvn verify; sleep 3"
-   }
+  // }
    }
    
    
