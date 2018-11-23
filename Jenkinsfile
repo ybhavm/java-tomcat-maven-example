@@ -10,6 +10,13 @@ node{
    stage('Build Docker Image'){
    sh 'docker build -t rajnikhattarrsinha/javatomcat:2.0.0 .'
    }
+   
+   stage 'test'
+   parallel 'test': {
+     sh "${mvnHome}/bin/mvn test; sleep 2;"
+   }, 'verify': {
+     sh "${mvnHome}/bin/mvn verify; sleep 3"
+   }
    stage('Push Docker Image')
    {
       withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
@@ -22,7 +29,7 @@ node{
    
    stage('Run Container on Deployment-server'){
       def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-example_$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
-      def portChk='./portrel.sh'
+      //def portChk='./portrel.sh'
       sshagent(['dockerdeployserver2']) {
     // some block
          sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"   
