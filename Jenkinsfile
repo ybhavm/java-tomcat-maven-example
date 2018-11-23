@@ -11,13 +11,9 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    stage ('Test'){
-      def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'
-    parallel 'test': {
-     sh "${mvnHome}/bin/mvn test; sleep 2;"
-   }, 'verify': {
-         
+      def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'    
       sh "${mvnHome}/bin/mvn verify; sleep 3"
-   }
+   
    }
    
    
