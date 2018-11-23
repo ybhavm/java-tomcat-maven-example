@@ -2,6 +2,14 @@ node{
    stage('SCM Checkout'){
      git 'https://github.com/rajnikhattarrsinha/java-tomcat-maven-example'
    }
+   
+   stage 'test'
+   parallel 'test': {
+     sh "${mvnHome}/bin/mvn test; sleep 2;"
+   }, 'verify': {
+     sh "${mvnHome}/bin/mvn verify; sleep 3"
+   }
+   
    stage('Mvn Package'){
       // Get maven home path
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
@@ -11,12 +19,7 @@ node{
    sh 'docker build -t rajnikhattarrsinha/javatomcat:2.0.0 .'
    }
    
-   stage 'test'
-   parallel 'test': {
-     sh "${mvnHome}/bin/mvn test; sleep 2;"
-   }, 'verify': {
-     sh "${mvnHome}/bin/mvn verify; sleep 3"
-   }
+   
    stage('Push Docker Image')
    {
       withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
