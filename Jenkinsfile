@@ -24,7 +24,13 @@ node{
       def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-example_$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
       sshagent(['dockerdeployserver2']) {
     // some block
-         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"
+         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73"
+         sh BUSY_PORT=$(sudo fuser 8080/tcp)
+            if [ ! -z "$BUSY_PORT" ]; then
+               sudo fuser -k 8080/tcp
+            fi
+         sh "${dockerRun}"
+         
       }
    }
    
