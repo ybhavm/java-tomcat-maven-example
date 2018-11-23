@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/rajnikhattarrsinha/my-app'
+     git 'https://github.com/rajnikhattarrsinha/java-tomcat-maven-example'
    }
    stage('Mvn Package'){
       // Get maven home path
@@ -8,7 +8,7 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    stage('Build Docker Image'){
-   sh 'docker build -t rajnikhattarrsinha/my-app:2.0.0 .'
+   sh 'docker build -t rajnikhattarrsinha/java-tomcat-maven-example:2.0.0 .'
    }
    stage('Push Docker Image')
    {
@@ -16,12 +16,12 @@ node{
     // some block
          sh "docker login -u rajnikhattarrsinha -p ${dockerPWD}"
          }
-      sh 'docker push rajnikhattarrsinha/my-app:2.0.0'
+      sh 'docker push rajnikhattarrsinha/java-tomcat-maven-example:2.0.0'
    
    }
    
    stage('Run Container on Deployment-server'){
-      def dockerRun= 'sudo docker run -p 8080:8080 -d --name my-app rajnikhattarrsinha/my-app:2.0.0'
+      def dockerRun= 'sudo docker run -p 8080:8080 -d --name my-app rajnikhattarrsinha/java-tomcat-maven-example:2.0.0'
       sshagent(['dockerdeployserver2']) {
     // some block
          sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"
