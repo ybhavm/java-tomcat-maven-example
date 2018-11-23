@@ -25,7 +25,8 @@ node{
       def portChk='sudo fuser -k 8080/tcp'
       sshagent(['dockerdeployserver2']) {
     // some block
-         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73 ${dockerRun}"
+         sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.174.128.73'
+         sh "${dockerRun}"
          
       }
    }
