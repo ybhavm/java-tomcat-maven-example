@@ -18,7 +18,7 @@ node{
    }
    
    
-   stage('Push Docker Image')
+   stage('Publish Docker Image')
    {
       withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
     // some block
@@ -28,7 +28,7 @@ node{
    
    }
    
-   stage('Run Container on Deployment-server'){
+   stage('Pull Docker Image and Deploy'){
       def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
       //def portChk='./portrel.sh'
       sshagent(['dockerdeployserver2']) {
