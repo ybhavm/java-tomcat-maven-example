@@ -1,9 +1,9 @@
 node{
-   stage('SCM Checkout'){
+   stage('Checkout'){
       //github step
      git 'https://github.com/rajnikhattarrsinha/java-tomcat-maven-example'
    }
-   stage('Mvn Build'){
+   stage('Build'){
       // Get maven home path
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
       sh "${mvnHome}/bin/mvn install"
