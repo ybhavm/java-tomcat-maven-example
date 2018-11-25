@@ -39,7 +39,7 @@ node{
       def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
       sshagent(['dockerdeployserver2']) {
     // some block
-         sh "ssh -o StrictHostKeyChecking=no ubuntu@34.239.128.128 ${dockerRun}"   
+         sh "ssh -o StrictHostKeyChecking=no root@34.239.128.128 ${dockerRun}"   
                    
       }
    }
