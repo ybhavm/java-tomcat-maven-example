@@ -10,7 +10,6 @@ node{
    }  
    stage('Mvn Package'){
       // Get maven home path
-      //test
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
