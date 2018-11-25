@@ -40,7 +40,7 @@ node{
       sshagent(['dockerdeployserver2']) {
     // some block
          sh 'echo "hello"'
-         sh "ssh -o StrictHostKeyChecking=no root@34.239.128.128 ${dockerRun}"   
+         sh "ssh -o StrictHostKeyChecking=no ubuntu@34.239.128.128 ${dockerRun}"   
                    
       }
    }
