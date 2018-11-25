@@ -9,6 +9,7 @@ node{
       sh "${mvnHome}/bin/mvn install"
    }
    stage ('Test'){
+      //test
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'    
       sh "${mvnHome}/bin/mvn verify; sleep 3"
    
