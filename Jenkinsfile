@@ -26,20 +26,22 @@ node{
    }
    
    stage('Pull Docker Image and Deploy'){
-      def dockerContainerTobeDeleted = 'javatommav-13'
-      def dockerContainerName = 'javatommav-$BUILD_NUMBER'
+      
+      /* def dockerStop= 'sudo docker stop "${(docker ps -a)}"'
+       sshagent(['dockerdeployserver2']) {
+       sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerStop}"
+          }*/
+        def dockerContainerName = 'javatommav-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javamaven:2.0.0"
-      //def dockerRun= 'sudo docker run -p 8080:8080 -d --name javatommav-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
-
-      sshagent(['dockerdeployserver2']) {
-        //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
-         sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
+        sshagent(['dockerdeployserver2']) {
+        sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
+         //sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
         // sh "docker ps -f name=${dockerContainerTobeDeleted} -q | xargs --no-run-if-empty docker container stop"
         // sh "docker container ls -a -fname=${dockerContainerTobeDeleted} -q | xargs -r docker container rm"
          //sh 'sudo docker stop "${(docker ps -a)}"'
          //sh 'docker rm `docker ps --all`'
         // sh "docker stop ${dockerContainerTobeDeleted}"
-         sh "${dockerRun}"         
+         //sh "${dockerRun}"         
       }
    }   
 }
