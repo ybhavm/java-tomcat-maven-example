@@ -26,6 +26,7 @@ node{
    }
    
    stage('Pull Docker Image and Deploy'){
+      def previousBuildNo='$BUILD_NUMBER-1'
       def dockerContainerName = 'java-tomcat-maven-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javatomcat:2.0.0"
       //def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
