@@ -40,7 +40,7 @@ node{
           //docker stop $(docker ps -a -q)
 
        }
-       
+        */
          
       sshagent(['dockerdeployserver2']) {
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
@@ -48,7 +48,7 @@ node{
         // sh 'cd /home/ubuntu/script'
         // sh './stopcontainer.sh'
       } 
-      */
+     
       def dockerContainerName = 'javatommav-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javamaven:2.0.0"
         sshagent(['dockerdeployserver2']) {
