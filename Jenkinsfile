@@ -29,9 +29,10 @@ node{
       
      
       // def dockerStop= "sudo docker stop $(docker ps -a)"
-      def dockerStop= 'sudo docker stop "${(docker ps -a -q)}"' 
+      def dockerContainersList='sudo docker ps -a -q'
+      //def dockerStop= 'sudo docker stop $(dockerContainersList)' 
        sshagent(['dockerdeployserver2']) {
-       sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerStop}"
+          sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 sudo docker stop ${dockerContainersList}"
           }
           
         def dockerContainerName = 'javatommav-$BUILD_NUMBER'
