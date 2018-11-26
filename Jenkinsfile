@@ -38,7 +38,7 @@ node{
         // sh "docker container ls -a -fname=${dockerContainerTobeDeleted} -q | xargs -r docker container rm"
          //sh 'sudo docker stop "${(docker ps -a)}"'
          //sh 'docker rm `docker ps --all`'
-         sh "sudo docker stop ${dockerContainerTobeDeleted}"
+        // sh "docker stop ${dockerContainerTobeDeleted}"
          sh "${dockerRun}"         
       }
    }   
