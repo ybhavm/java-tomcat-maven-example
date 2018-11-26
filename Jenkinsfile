@@ -30,7 +30,7 @@ node{
       sshagent(['dockerdeployserver2']) {
         //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
-         sh 'sudo docker stop "$(docker ps -a)"'
+         sh 'sudo docker stop "${(docker ps -a)}"'
          sh "${dockerRun}"         
       }
    }   
