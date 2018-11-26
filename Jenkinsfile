@@ -26,11 +26,16 @@ node{
    }
    
    stage('Pull Docker Image and Deploy'){
-      def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
+      def dockerContainerName = 'java-tomcat-maven-$BUILD_NUMBER'
+      def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javatomcat:2.0.0"
+      //def dockerRun= 'sudo docker run -p 8080:8080 -d --name java-tomcat-maven-$BUILD_NUMBER rajnikhattarrsinha/javatomcat:2.0.0'
+
       sshagent(['dockerdeployserver2']) {
         //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
-         sh 'sudo docker stop "${(docker ps -a)}"'
+         sh "docker ps -f name=${dockerContainerName} -q | xargs --no-run-if-empty docker container stop"
+         sh "docker container ls -a -fname=${dockerContainerName} -q | xargs -r docker container rm"
+         //sh 'sudo docker stop "${(docker ps -a)}"'
          sh "${dockerRun}"         
       }
    }   
