@@ -27,7 +27,7 @@ node{
    
    stage('Pull Docker Image and Deploy'){
       
-     /*
+    
       // def dockerStop= "sudo docker stop $(docker ps -a)"
       def dockerContainersList='docker ps -a -q'
       //def dockerStop= 'sudo docker stop $(dockerContainersList)' 
@@ -37,7 +37,7 @@ node{
           //sh 'docker pa-a -q'
           sh "sudo docker stop ${dockerContainersList}" 
        }
-      */
+     
           
         def dockerContainerName = 'javatommav-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javamaven:2.0.0"
