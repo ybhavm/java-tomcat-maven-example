@@ -44,7 +44,8 @@ node{
          
       sshagent(['dockerdeployserver2']) {
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
-         sh 'sudo su & ./stopscript.sh'
+         sh 'sudo su'
+         sh './stopscript.sh'
         // sh 'cd /home/ubuntu/script'
         // sh './stopcontainer.sh'
       } 
