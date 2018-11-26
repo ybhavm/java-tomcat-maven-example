@@ -2,6 +2,7 @@ node{
    stage('Checkout'){
       git 'https://github.com/rajnikhattarrsinha/java-tomcat-maven-example'
    }
+   /*
    stage('Build'){
       // Get maven home path and build
       def mvnHome =  tool name: 'Maven 3.5.4', type: 'maven'   
@@ -24,7 +25,7 @@ node{
          }
       sh 'docker push rajnikhattarrsinha/javamaven:2.0.0'
    }
-   
+*/
    stage('Pull Docker Image and Deploy'){
       
    /*
@@ -43,6 +44,7 @@ node{
          */
       sshagent(['dockerdeployserver2']) {
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
+         sh 'sudo su'
          sh 'cd /home/ubuntu/script'
          sh './stopcontainer.sh'
       } 
