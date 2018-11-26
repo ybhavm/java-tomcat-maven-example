@@ -34,10 +34,11 @@ node{
       sshagent(['dockerdeployserver2']) {
         //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
-         sh "docker ps -f name=${dockerContainerTobeDeleted} -q | xargs --no-run-if-empty docker container stop"
-         sh "docker container ls -a -fname=${dockerContainerTobeDeleted} -q | xargs -r docker container rm"
+        // sh "docker ps -f name=${dockerContainerTobeDeleted} -q | xargs --no-run-if-empty docker container stop"
+        // sh "docker container ls -a -fname=${dockerContainerTobeDeleted} -q | xargs -r docker container rm"
          //sh 'sudo docker stop "${(docker ps -a)}"'
          //sh 'docker rm `docker ps --all`'
+         sh "sudo docker stop ${dockerContainerTobeDeleted}"
          sh "${dockerRun}"         
       }
    }   
