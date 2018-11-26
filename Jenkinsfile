@@ -35,7 +35,7 @@ node{
           //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 sudo docker stop ${dockerContainersList}"
          sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
           //sh 'docker pa-a -q'
-          sh 'sudo docker stop $("${dockerContainersList})"'
+          sh 'sudo docker stop $("$({dockerContainersList})")'
           //docker stop $(docker ps -a -q)
 
        }
