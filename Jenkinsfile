@@ -27,7 +27,7 @@ node{
    
    stage('Pull Docker Image and Deploy'){
       
-    
+    /*
       // def dockerStop= "sudo docker stop $(docker ps -a)"
       def dockerContainersList='docker ps -a -q'
       //def dockerStop= 'sudo docker stop $(dockerContainersList)' 
@@ -35,8 +35,11 @@ node{
           //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 sudo docker stop ${dockerContainersList}"
        sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
           //sh 'docker pa-a -q'
-          sh "sudo docker stop ${dockerContainersList}" 
+          sh "sudo docker stop $(${dockerContainersList})" 
+          //docker stop $(docker ps -a -q)
+
        }
+      */
      
           
         def dockerContainerName = 'javatommav-$BUILD_NUMBER'
