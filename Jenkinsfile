@@ -30,9 +30,10 @@ node{
    stage('Pull Docker Image and Deploy'){        
       def dockerContainerName = 'javademo-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javademo:2.0.0"
+          def listContainer='sudo docker ps'
          def stopContainer='sudo docker stop $(docker ps -a -q)'
         sshagent(['dockerdeployserver2']) {
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
+              sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${listContainer}"
             //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${stopContainer}"
             //sh '''ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${stopContainer}'''
            // docker stop $(docker ps -a -q)
