@@ -34,7 +34,7 @@ node{
          def scriptRunner='sudo ./stopscript.sh'
          def stopContainer='sudo docker stop $(docker ps -a -q)'
         sshagent(['dockerdeployserver2']) {
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${scriptRunner}"
+              sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${scriptRunner} | ${dockerRun}"
             //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${stopContainer}"
               //sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
             //sh '''ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${stopContainer}'''
