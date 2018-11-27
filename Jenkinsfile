@@ -29,11 +29,12 @@ node{
    stage('Pull Docker Image and Deploy'){        
       def dockerContainerName = 'javatommav-$BUILD_NUMBER'
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javamaven:2.0.0"
+         def stopContainer='docker stop $(docker ps -a -q)'
         sshagent(['dockerdeployserver2']) {
-            sh '''ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 
+            sh '''ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${stopContainer}'''
            // docker stop $(docker ps -a -q)
-            ${dockerRun}
-            '''
+           // ${dockerRun}
+           // '''
                //sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
               // sh "docker ps -f name=${dockerContainerTobeDeleted} -q | xargs --no-run-if-empty docker container stop"
               // sh "docker container ls -a -fname=${dockerContainerTobeDeleted} -q | xargs -r docker container rm"
