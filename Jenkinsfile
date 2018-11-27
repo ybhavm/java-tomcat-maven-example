@@ -49,6 +49,14 @@ node{
               // sh "docker stop ${dockerContainerTobeDeleted}"
                //sh "${dockerRun}"         
          }
+   } 
+      stage('Pull Docker Image and Deploy'){        
+            def dockerContainerName = 'javademo-$BUILD_NUMBER'
+            def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javademo:2.0.0"         
+            sshagent(['dockerdeployserver2']) {
+              sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"
+                   
+         }
    }   
 }
 
