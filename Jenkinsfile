@@ -35,6 +35,7 @@ node{
          }
     } 
    stage('Pull Docker Image and Deploy'){        
+         
             def dockerContainerName = 'javademo-$BUILD_NUMBER'
             def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javademo:2.0.0"         
             sshagent(['dockerdeployserver2']) {
