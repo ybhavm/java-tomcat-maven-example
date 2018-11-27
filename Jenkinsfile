@@ -31,7 +31,7 @@ node{
       def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javamaven:2.0.0"
         sshagent(['dockerdeployserver2']) {
             sh '''ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 
-            docker stop $(docker ps -a -q)
+           // docker stop $(docker ps -a -q)
             ${dockerRun}
             '''
                //sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236'
