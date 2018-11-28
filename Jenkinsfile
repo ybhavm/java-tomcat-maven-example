@@ -36,7 +36,7 @@ node{
     } 
    stage('Pull Docker Image and Deploy'){        
          
-            def dockerContainerName = 'javademo-$BUILD_NUMBER'
+            def dockerContainerName = 'javademo-$BUILD_NAME_$BUILD_NUMBER'
             def dockerRun= "sudo docker run -p 8080:8080 -d --name ${dockerContainerName} rajnikhattarrsinha/javatomcatdemo:2.0.0"         
             sshagent(['dockerdeployserver2']) {
               sh "ssh -o StrictHostKeyChecking=no ubuntu@18.215.68.236 ${dockerRun}"              
